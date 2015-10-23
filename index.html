@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Steam Quicksell/buy Calculator</title>
+    <meta name="description" content="Steam Quicksell/buy Calculator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Angular Material CSS now available via Google CDN; version 0.11.2 used here -->
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div ng-cloak ng-app="myApp">
+    <md-toolbar class=" md-primary">
+        <h2 class="md-toolbar-tools">
+            <span>Steam Quickbuy / Quicksell Calculator</span>
+        </h2>
+    </md-toolbar>
+    <md-content class="md-padding">
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Buying">
+                <md-content >
+                    <!--Code Starts-->
+                    <div layout-padding ng-controller="buyingCtrl" layout="column" ng-cloak>
+
+                       <md-content>
+                            <md-content  layout="row" layout-sm="column">
+                                <md-input-container class="md-padding">
+                                    <p>Item Market Price (USD)</p>
+                                    <label>in USD</label>
+                                    <input ng-model="itemstats.mprice">
+                                </md-input-container>
+
+                                <md-input-container class="md-padding">
+                                    <p>Quickbuy Percentage</p>
+                                    <label>%</label>
+                                    <input ng-model="itemstats.percentage">
+                                </md-input-container>
+
+                                <md-input-container class="md-padding">
+                                    <p>Base Key Rate</p>
+                                    <label>in USD</label>
+                                    <input ng-model="itemstats.basekeyrate">
+                                </md-input-container>
+                            </md-content>
+                       </md-content>
+                        <md-content >
+                        <h2 layout-padding>
+                            <p class="belowtext">Best buy at </p> {{ (( itemstats.mprice * itemstats.percentage * 0.01 ) / itemstats.basekeyrate) | number:2 }} Keys
+                        </h2>
+                        </md-content>
+
+                    </div>
+                    <!--code ends-->
+                </md-content>
+            </md-tab>
+            <md-tab label="Selling">
+                <md-content>
+                    <!--Code Starts-->
+                    <div layout-padding ng-controller="sellingCtrl" layout="column" ng-cloak>
+
+                        <md-content >
+                            <md-content  layout="row" layout-sm="column">
+                                <md-input-container class="md-padding">
+                                    <p>Item Market Price (USD)</p>
+                                    <label>in USD</label>
+                                    <input ng-model="itemstats.mprice">
+                                </md-input-container>
+
+                                <md-input-container class="md-padding">
+                                    <p>Quicksell Percentage</p>
+                                    <label>%</label>
+                                    <input ng-model="itemstats.percentage">
+                                </md-input-container>
+
+                                <md-input-container class="md-padding">
+                                    <p>Base Key Rate</p>
+                                    <label>in USD</label>
+                                    <input ng-model="itemstats.basekeyrate">
+                                </md-input-container>
+                            </md-content>
+                        </md-content>
+                        <md-content>
+                            <h2 layout-padding>
+                                <p class="belowtext">Best sell at </p> {{ (( itemstats.mprice * itemstats.percentage * 0.01  ) / itemstats.basekeyrate) | number:2 }} Keys
+                            </h2>
+                        </md-content>
+
+                    </div>
+                    <!--code ends-->
+                </md-content>
+            </md-tab>
+
+
+            <md-tab label="Trade Profit">
+                <md-content >
+                    <!--Code Starts-->
+                    <div layout-padding ng-controller="TPCtrl" layout="column" ng-cloak>
+
+                        <md-content >
+                            <md-content  layout="row" layout-sm="column">
+                                <md-input-container class="md-padding">
+                                    <p>Item Market Price (USD)</p>
+                                    <label>in USD</label>
+                                    <input ng-model="itemstats.mprice">
+                                </md-input-container>
+
+                                <md-input-container class="md-padding">
+                                    <p>Quickbuy Percentage</p>
+                                    <label>%</label>
+                                    <input ng-model="itemstats.bper">
+                                </md-input-container>
+
+                                <md-input-container class="md-padding">
+                                    <p>Quicksell Percentage</p>
+                                    <label>%</label>
+                                    <input ng-model="itemstats.sper">
+                                </md-input-container>
+
+                                <md-input-container class="md-padding">
+                                    <p>Base Key Rate</p>
+                                    <label>in USD</label>
+                                    <input ng-model="itemstats.basekeyrate">
+                                </md-input-container>
+                            </md-content>
+                        </md-content>
+                        <md-content>
+                            <h2 layout-padding flex layout-align="center center">
+                                <p class="belowtext">Approx profit of </p> {{ (( itemstats.mprice * itemstats.sper * 0.01 ) / itemstats.basekeyrate) - (( itemstats.mprice * itemstats.bper * 0.01 ) / itemstats.basekeyrate) | number:2 }} Keys
+                                <!--Approx profit of {{ | number:2 }} Keys-->
+                            </h2>
+                        </md-content>
+
+                    </div>
+                    <!--code ends-->
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
+
+
+<!-- Angular Material Dependencies -->
+<script src="js/angular.min.js"></script>
+<script src="js/angular-animate.min.js"></script>
+<script src="js/angular-aria.min.js"></script>
+
+<!-- Angular Material Javascript now available via Google CDN; version 0.11.2 used here -->
+<script src="js/angular-material.min.js"></script>
+<script src="js/app.js"></script>
+
+
+</body>
+</html>
