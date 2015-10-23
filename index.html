@@ -50,7 +50,7 @@
                        </md-content>
                         <md-content >
                         <h2 layout-padding>
-                            <p class="belowtext">Best buy at </p> {{ (( itemstats.mprice * itemstats.percentage * 0.01 ) / itemstats.basekeyrate) | number:2 }} Keys
+                            <p class="belowtext">Best buy at </p> {{ (( itemstats.mprice * itemstats.percentage * 0.01 ) / itemstats.basekeyrate) | number:2 }} <span class="belowtext"> Keys</span>
                         </h2>
                         </md-content>
 
@@ -86,7 +86,7 @@
                         </md-content>
                         <md-content>
                             <h2 layout-padding>
-                                <p class="belowtext">Best sell at </p> {{ (( itemstats.mprice * itemstats.percentage * 0.01  ) / itemstats.basekeyrate) | number:2 }} Keys
+                                <p class="belowtext">Best sell at </p> {{ (( itemstats.mprice * itemstats.percentage * 0.01  ) / itemstats.basekeyrate) | number:2 }} <span class="belowtext"> Keys</span>
                             </h2>
                         </md-content>
 
@@ -130,7 +130,7 @@
                         </md-content>
                         <md-content>
                             <h2 layout-padding flex layout-align="center center">
-                                <p class="belowtext">Approx profit of </p> {{ (( itemstats.mprice * itemstats.sper * 0.01 ) / itemstats.basekeyrate) - (( itemstats.mprice * itemstats.bper * 0.01 ) / itemstats.basekeyrate) | number:2 }} Keys
+                                <p class="belowtext">Approx profit of </p> {{ (( itemstats.mprice * itemstats.sper * 0.01 ) / itemstats.basekeyrate) - (( itemstats.mprice * itemstats.bper * 0.01 ) / itemstats.basekeyrate) | number:2 }}<span class="belowtext"> Keys</span>
                                 <!--Approx profit of {{ | number:2 }} Keys-->
                             </h2>
                         </md-content>
